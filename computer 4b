@@ -16,8 +16,9 @@ bback = bineq;
    xres(r+1,n) = x;
    fres(r+1) = fval;
    ub = fval;%%obtain the start bounds
-   
-   
+%%[ub*, Zlr[numta(r)]]
+%%if x(r) is feasible to IP(Ax<=b) LB* = max[LB*,cx(r)]
+%%Stopping criterion is satisfied:    
  
    
    
