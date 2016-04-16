@@ -1,0 +1,25 @@
+function []=comp4b(f,Aineq,bineq,m,n)
+
+s = 1;
+Aback = Aineq;
+bback = bineq;
+%%while s<=m;
+    r = 0;
+    numta(1:s)=1;
+    ftemp = [f,-numta(1:s)*(bineq(:,1:s)-Aienq(1:s,:))];
+    Aienq(1:s,:) = 0;%Create the lagrangian relaxed problem
+    
+   options = cplexoptimset;
+   options.Display = 'on';
+   [x, fval, exitflag, output] = cplexlp ...
+      (ftemp, Aineq, bineq,options);%solve the lagrangian relaxed problem
+   xres(r+1,n) = x;
+   fres(r+1) = fval;
+   ub = fval;%%obtain the start bounds
+   
+   
+ 
+   
+   
+%%end
+
