@@ -1,0 +1,34 @@
+function [f,Aineq,bineq,m,n] = comp4a()
+
+m = 10;
+m1 = randi([0,10],1,1);%%random m1
+m2 = m-m1;%%random m2
+n = 15;
+
+
+f = randi([-5,10],1,n);
+Aineq = zeros(m,n);
+bineq = zeros(m,1);
+
+randrow = randperm(m,m*0.4);
+
+
+for l =1:m;
+    randcol = randperm(n,n*0.4);
+    for y = 1:n*0.4;
+    stat = 0;
+            while stat == 0;
+                Aineq(l,randcol(1,y))=randi([-10,30],1,1);
+                if Aineq(l,randcol(1,y)) ~= 0;
+                    stat = 1;
+                end
+            end
+    end
+end
+bless = randi([-50,0],m*0.7,1);
+bgret = randi([0,50],m*0.3,1);
+bineq(1:m*0.7,1) = bless;
+bineq(m*0.7+1:m,1) = bgret;
+Aineq
+
+
