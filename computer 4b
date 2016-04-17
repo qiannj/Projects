@@ -18,7 +18,14 @@ bback = bineq;
    ub = fval;%%obtain the start bounds
 %%[ub*, Zlr[numta(r)]]
 %%if x(r) is feasible to IP(Ax<=b) LB* = max[LB*,cx(r)]
-%%Stopping criterion is satisfied:    
+%%Stopping criterion is satisfied:    (UB*-LB*)/LB*<0.001
+%%
+%%Step size calculation: Theta(r)=alpha(r)*(Zlr(numta(r))-Zld/sum(Si(r)))
+%%											  alpha(r)=2/2^(r-1)	
+%%
+%%
+%%s(r) = b(r)-A(r)*x(r)
+%%numta(r+2)=max(0,numta(r)-theta(r)*s(r))
  
    
    
